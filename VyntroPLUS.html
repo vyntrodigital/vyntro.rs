@@ -1,0 +1,1114 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="icon" type="image/x-icon" href="vvv.ico"></head><body>
+<title>Vyntro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vyntro – digitalni studio iz Novog Sada. Izrada web sajtova, web shopova, web dizajn i vođenje društvenih mreža.">
+<meta property="og:title" content="Vyntro – digitalni studio">
+<meta property="og:description" content="Pravimo sajtove, web shopove i sadržaj za društvene mreže.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sr_RS">
+<meta name="theme-color" content="#0B0C10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0C10'/%3E%3Cpolygon points='5,8 10.5,8 16.5,25 11,25' fill='%23F2F3F5'/%3E%3Cpolygon points='21.5,8 27,8 21,25 15.5,25' fill='%235C78FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark, cinematic agency site. Full-bleed grainy gradient hero with typed headline, centered section heads,
+   rounded dark cards, outlined process numbers, services ticker, floating back-to-top. Single deliberate dark look. */
+:root {
+  --bg: #0B0C10;
+  --bg-2: #0F1116;
+  --card: #14161C;
+  --card-2: #1A1D25;
+  --line: #242731;
+  --fg: #F2F3F5;
+  --muted: #A0A5B1;
+  --dim: #6B707C;
+  --a1: #5C78FF;   /* cobalt */
+  --a2: #FFB547;   /* amber */
+  --grad: linear-gradient(90deg, var(--a1), var(--a2));
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --header-h: 76px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+::selection { background: var(--a1); color: #fff; }
+a { color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--display); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+:focus-visible { outline: 2px solid var(--a1); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.section { padding-block: clamp(80px, 11vw, 140px); position: relative; }
+.section.alt { background: var(--bg-2); }
+
+.eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.head { display: grid; justify-items: center; text-align: center; gap: 18px; max-width: 720px; margin: 0 auto clamp(48px, 6vw, 72px); }
+.head h2 { font-size: clamp(32px, 5vw, 56px); }
+.head p { color: var(--muted); font-size: 17px; max-width: 56ch; }
+.rule { width: 120px; height: 3px; border-radius: 3px; background: var(--grad); }
+
+/* Buttons */
+.btn {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font: 600 15px/1 var(--body); text-decoration: none; cursor: pointer; white-space: nowrap;
+  padding: 16px 28px; border-radius: 999px; border: 1px solid transparent;
+  transition: transform .2s var(--ease), background .2s ease, border-color .2s ease, box-shadow .3s ease;
+}
+.btn:active { transform: scale(.98); }
+.btn .arr { transition: transform .25s var(--ease); }
+.btn:hover .arr { transform: translateX(4px); }
+.btn-white { background: var(--fg); color: var(--bg); box-shadow: 0 10px 40px -12px rgba(255, 255, 255, .45); }
+.btn-white:hover { box-shadow: 0 14px 50px -10px rgba(255, 255, 255, .6); transform: translateY(-2px); }
+.btn-line { border-color: var(--line); color: var(--fg); background: rgba(255, 255, 255, .02); }
+.btn-line:hover { border-color: var(--muted); }
+.btn-grad { color: #0B0C10; background: var(--grad); box-shadow: 0 12px 40px -14px var(--a1); }
+.btn-grad:hover { transform: translateY(-2px); }
+.btn-white::after, .btn-grad::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .6) 50%, transparent 70%);
+  transform: translateX(-130%);
+}
+.btn-white:hover::after, .btn-grad:hover::after { transform: translateX(130%); transition: transform .8s var(--ease); }
+
+/* Header */
+.skip { position: absolute; left: -9999px; top: 8px; z-index: 80; background: var(--fg); color: var(--bg); padding: 10px 14px; border-radius: 8px; text-decoration: none; }
+.skip:focus { left: var(--gutter-l); }
+header.site { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50; transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease; border-bottom: 1px solid transparent; }
+header.site.scrolled { background: rgba(11, 12, 16, .72); backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); border-color: var(--line); }
+header.site .wrap { height: var(--header-h); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: .14em; line-height: 1; justify-self: start; }
+.logo svg { width: 26px; height: 26px; flex: none; }
+nav.links { display: flex; gap: 34px; }
+nav.links a { position: relative; text-decoration: none; font-size: 15px; font-weight: 500; color: var(--muted); padding-block: 6px; transition: color .2s ease; }
+nav.links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+nav.links a:hover, nav.links a[aria-current="true"] { color: var(--fg); }
+nav.links a[aria-current="true"]::after, nav.links a:hover::after { transform: scaleX(1); }
+.head-right { justify-self: end; display: flex; align-items: center; gap: 18px; }
+.socials { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.socials a { text-decoration: none; transition: color .2s ease; }
+.socials a:hover { color: var(--fg); }
+.socials span { color: var(--line); }
+.head-right .btn { padding: 11px 20px; font-size: 14px; }
+.menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--fg); cursor: pointer; place-items: center; }
+.menu-btn svg { width: 18px; height: 18px; grid-area: 1 / 1; transition: opacity .15s ease, transform .25s var(--ease); }
+.menu-btn .i-close { opacity: 0; transform: rotate(-90deg); }
+header.site.open .menu-btn .i-open { opacity: 0; transform: rotate(90deg); }
+header.site.open .menu-btn .i-close { opacity: 1; transform: none; }
+@media (max-width: 980px) {
+  header.site .wrap { grid-template-columns: 1fr auto; }
+  .socials, .head-right .btn { display: none; }
+  .menu-btn { display: grid; }
+  nav.links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0;
+    background: rgba(11, 12, 16, .96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line); padding: 8px var(--gutter-r) 20px var(--gutter-l);
+  }
+  header.site.open { background: rgba(11, 12, 16, .96); border-color: var(--line); }
+  header.site.open nav.links { display: flex; }
+  nav.links a { padding: 16px 0; font-size: 18px; color: var(--fg); border-bottom: 1px solid var(--line); }
+  nav.links a::after { display: none; }
+  nav.links a:last-child { border-bottom: 0; }
+}
+
+/* Hero */
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(600px, 92vh, 960px); display: grid; place-items: center; text-align: center; padding-block: calc(var(--header-h) + 40px) 120px; }
+.hero-bg { position: absolute; inset: -10%; z-index: -3; pointer-events: none;
+  background:
+    radial-gradient(42% 52% at 14% 12%, rgba(92, 120, 255, .62), transparent 72%),
+    radial-gradient(40% 46% at 86% 26%, rgba(170, 178, 196, .30), transparent 72%),
+    radial-gradient(55% 48% at 50% 108%, rgba(255, 150, 60, .62), transparent 72%),
+    radial-gradient(30% 34% at 22% 92%, rgba(255, 90, 60, .38), transparent 72%),
+    var(--bg);
+  filter: saturate(1.1);
+  animation: breathe 16s ease-in-out infinite alternate;
+}
+@keyframes breathe { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-2%, 2%, 0) scale(1.06); } }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none; background: var(--grain); opacity: .14; mix-blend-mode: overlay; }
+.hero::after { content: ""; position: absolute; inset: auto 0 0; height: 40%; z-index: -1; pointer-events: none; background: linear-gradient(transparent, var(--bg)); }
+.hero-inner { display: grid; justify-items: center; gap: 28px; max-width: 1100px; }
+.hero .eyebrow { color: var(--fg); background: none; opacity: .8; }
+.hero h1 { font-size: clamp(34px, 8.2vw, 112px); font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; min-height: 2.04em; }
+.hero h1 .typed { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.caret { display: inline-block; width: .06em; height: .86em; margin-left: .06em; vertical-align: -0.06em; background: var(--fg); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero .lead { font-size: clamp(17px, 1.7vw, 21px); color: rgba(242, 243, 245, .82); max-width: 40ch; }
+.hero .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+.scroll-hint { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); display: grid; justify-items: center; gap: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .3em; color: rgba(242, 243, 245, .6); text-decoration: none; }
+.scroll-hint i { width: 1px; height: 46px; background: linear-gradient(var(--fg), transparent); transform-origin: top; animation: drop 2.2s var(--ease) infinite; }
+@keyframes drop { 0% { transform: scaleY(0); opacity: 1; } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+
+/* About */
+.about { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.about h2 { font-size: clamp(32px, 4.6vw, 56px); }
+.about .rule { margin: 26px 0; width: 100%; max-width: 360px; }
+.about p { color: var(--muted); font-size: 17px; max-width: 54ch; }
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin-top: 32px; }
+.pillars div { display: grid; gap: 4px; padding-left: 16px; border-left: 2px solid var(--line); transition: border-color .3s ease; }
+.pillars div:hover { border-color: var(--a1); }
+.pillars b { font-size: 15px; }
+.pillars span { font-size: 14px; color: var(--dim); }
+.device { position: relative; border-radius: 18px; border: 1px solid var(--line); background: linear-gradient(180deg, var(--card-2), var(--card)); padding: 14px; box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .02) inset; transform: perspective(1400px) rotateY(-8deg) rotateX(4deg); transition: transform .8s var(--ease); min-width: 0; }
+.device:hover { transform: perspective(1400px) rotateY(0) rotateX(0); }
+.device::before { content: ""; position: absolute; inset: -40px; z-index: -1; background: radial-gradient(50% 50% at 70% 30%, rgba(92, 120, 255, .35), transparent 70%), radial-gradient(40% 40% at 20% 90%, rgba(255, 150, 60, .25), transparent 70%); filter: blur(20px); }
+.d-bar { display: flex; align-items: center; gap: 7px; padding: 4px 6px 14px; }
+.d-bar i { width: 10px; height: 10px; border-radius: 50%; }
+.d-bar i:nth-child(1) { background: #FF5F57; } .d-bar i:nth-child(2) { background: #FEBC2E; } .d-bar i:nth-child(3) { background: #28C840; }
+.d-bar span { margin-left: 12px; flex: 1; font: 12px var(--mono); color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; }
+.d-screen { border-radius: 10px; background: var(--bg); border: 1px solid var(--line); padding: 22px; display: grid; gap: 14px; aspect-ratio: 16 / 11; max-width: 100%; overflow: hidden; }
+.d-nav { display: flex; justify-content: space-between; align-items: center; }
+.d-nav b { width: 70px; height: 10px; border-radius: 4px; background: var(--fg); opacity: .9; }
+.d-nav span { display: flex; gap: 10px; }
+.d-nav span i { width: 34px; height: 6px; border-radius: 3px; background: var(--line); }
+.d-hero { border-radius: 10px; padding: 22px; background: radial-gradient(70% 90% at 0% 0%, rgba(92, 120, 255, .5), transparent 70%), radial-gradient(70% 90% at 100% 100%, rgba(255, 150, 60, .45), transparent 70%), var(--card); display: grid; gap: 10px; }
+.d-hero i { display: block; height: 12px; border-radius: 4px; background: var(--fg); width: 70%; }
+.d-hero i + i { width: 46%; opacity: .5; height: 8px; }
+.d-hero u { width: 80px; height: 22px; border-radius: 99px; background: var(--fg); margin-top: 6px; }
+.d-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.d-cards div { aspect-ratio: 4 / 3; border-radius: 8px; background: var(--card-2); border: 1px solid var(--line); }
+.d-cards div:nth-child(1) { background: linear-gradient(160deg, rgba(92, 120, 255, .55), var(--card-2)); }
+.d-cards div:nth-child(2) { background: linear-gradient(160deg, rgba(255, 150, 60, .5), var(--card-2)); }
+@media (max-width: 900px) { .about { grid-template-columns: 1fr; } .device { transform: none; } }
+@media (max-width: 480px) { .pillars { grid-template-columns: 1fr; } }
+
+/* Process: sticky intro on the left, timeline of steps on the right that fills as you scroll */
+.flow-wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px, 7vw, 112px); align-items: start; }
+.flow-intro { position: sticky; top: calc(var(--header-h) + 40px); display: grid; gap: 20px; min-width: 0; }
+.flow-intro h2 { font-size: clamp(32px, 4.4vw, 54px); }
+.flow-intro p { color: var(--muted); font-size: 17px; max-width: 42ch; }
+.flow-intro .btn { justify-self: start; margin-top: 8px; }
+.flow { position: relative; display: grid; padding-left: 44px; }
+.flow::before, .flow::after { content: ""; position: absolute; left: 11px; top: 14px; bottom: 14px; width: 2px; border-radius: 2px; }
+.flow::before { background: var(--line); }
+.flow::after { background: linear-gradient(180deg, var(--a1), var(--a2)); transform-origin: top; transform: scaleY(var(--fill, 0)); transition: transform .2s linear; }
+.flow li { position: relative; display: grid; gap: 10px; padding: 8px 0 44px; }
+.flow li:last-child { padding-bottom: 8px; }
+.flow li::before {
+  content: ""; position: absolute; left: -44px; top: 10px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--bg-2); border: 2px solid var(--line); box-sizing: border-box; z-index: 1;
+  transition: border-color .4s ease, background .4s ease, box-shadow .4s ease;
+}
+.flow li.on::before { border-color: var(--a2); background: radial-gradient(circle, var(--a2) 0 4px, var(--bg-2) 4.5px); box-shadow: 0 0 0 6px rgba(255, 181, 71, .12); }
+.flow .when { font: 500 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); transition: color .4s ease; }
+.flow li.on .when { color: var(--a2); }
+.flow h3 { font-size: clamp(20px, 2.2vw, 26px); }
+.flow p { color: var(--muted); font-size: 16px; max-width: 52ch; }
+.flow .out { justify-self: start; display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--fg); padding: 7px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); }
+.flow .out::before { content: "→"; color: var(--a1); }
+@media (max-width: 900px) { .flow-wrap { grid-template-columns: 1fr; } .flow-intro { position: static; } }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.svc {
+  position: relative; isolation: isolate; overflow: hidden; padding: clamp(28px, 3.6vw, 44px); border-radius: 22px;
+  border: 1px solid var(--line); background: linear-gradient(180deg, var(--card), var(--bg-2)); display: grid; gap: 16px; align-content: start; min-width: 0;
+  transition: border-color .3s ease, transform .4s var(--ease);
+}
+.svc::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .35s ease; background: radial-gradient(380px circle at var(--x, 50%) var(--y, 0%), rgba(92, 120, 255, .22), transparent 70%); }
+.svc:hover { border-color: #343846; transform: translateY(-4px); }
+.svc:hover::before { opacity: 1; }
+.svc .ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: rgba(92, 120, 255, .1); border: 1px solid rgba(92, 120, 255, .25); color: var(--a1); }
+.svc .ic svg { width: 24px; height: 24px; }
+.svc h3 { font-size: clamp(24px, 2.6vw, 32px); transition: color .3s ease; }
+.svc:hover h3 { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.svc p { color: var(--muted); font-size: 16px; }
+.svc ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.svc li { font: 500 12px var(--mono); color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 5px 12px; }
+@media (max-width: 820px) { .services { grid-template-columns: 1fr; } }
+
+/* Ticker */
+.ticker { border-block: 1px solid var(--line); background: linear-gradient(90deg, rgba(92, 120, 255, .08), rgba(255, 181, 71, .06)); overflow: hidden; padding-block: 26px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.ticker-track { display: flex; align-items: center; width: max-content; animation: ticker 40s linear infinite; }
+.ticker-track span { font: 600 clamp(15px, 1.6vw, 19px) var(--body); letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; color: var(--fg); padding-inline: 28px; }
+.ticker-track i { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); flex: none; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* Portfolio */
+.work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.case { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); border-radius: 22px; background: var(--card); overflow: hidden; min-width: 0; transition: border-color .3s ease, transform .4s var(--ease); }
+.case:hover { border-color: #343846; transform: translateY(-4px); }
+.shot { aspect-ratio: 16 / 10; max-width: 100%; background: var(--c-bg2); padding: 28px 28px 0; display: flex; align-items: flex-end; overflow: hidden; }
+.mock { width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; background: var(--c-bg); color: var(--c-ink); border-radius: 10px 10px 0 0; box-shadow: 0 -12px 40px -16px rgba(0, 0, 0, .5); font-family: var(--body); transition: transform .7s var(--ease); }
+.case:hover .mock { transform: translateY(-10px) scale(1.01); }
+.m-bar { display: flex; align-items: center; gap: 5px; padding: 8px 10px; border-bottom: 1px solid rgba(0, 0, 0, .07); }
+.m-bar i { width: 6px; height: 6px; border-radius: 50%; background: rgba(0, 0, 0, .14); }
+.m-bar span { margin-left: 8px; font: 9px/1.4 var(--mono); opacity: .6; background: rgba(0, 0, 0, .05); padding: 2px 10px; border-radius: 99px; }
+.m-body { padding: 12px 14px; display: grid; gap: 10px; font-size: 9px; line-height: 1.35; }
+.m-nav { display: flex; align-items: center; gap: 10px; }
+.m-nav b { font: 700 12px/1 var(--display); color: var(--c-brand); letter-spacing: -0.02em; }
+.m-nav span { width: 26px; height: 4px; border-radius: 2px; background: currentColor; opacity: .18; }
+.m-nav em { margin-left: auto; font-style: normal; background: var(--c-brand); color: #fff; padding: 3px 8px; border-radius: 99px; font-size: 8px; }
+.m-hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px; align-items: center; background: var(--c-soft); border-radius: 6px; padding: 12px; }
+.m-hero strong { display: block; font: 600 13px/1.15 var(--display); letter-spacing: -0.02em; }
+.m-hero small { display: block; opacity: .7; margin: 5px 0 8px; font-size: 8.5px; }
+.m-hero u { display: inline-block; text-decoration: none; background: var(--c-brand); color: #fff; padding: 4px 9px; border-radius: 4px; font-size: 8px; }
+.m-art { aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--c-brand); color: #fff; display: grid; place-items: center; }
+.m-art svg { width: 46%; height: 46%; }
+.m-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.m-grid div { background: var(--c-soft); border-radius: 5px; padding: 6px; display: grid; gap: 3px; }
+.m-grid i { display: block; aspect-ratio: 4 / 3; border-radius: 4px; background: color-mix(in srgb, var(--c-brand) 22%, var(--c-bg)); }
+.m-grid b { color: var(--c-brand); font-size: 8.5px; }
+.m-grid.svc2 div { grid-template-columns: 14px 1fr; align-items: center; gap: 6px; padding: 8px; }
+.m-grid.svc2 i { aspect-ratio: 1; border-radius: 50%; background: var(--c-brand); opacity: .85; }
+.ig-head { display: flex; align-items: center; gap: 10px; }
+.ig-head .av { width: 34px; height: 34px; border-radius: 50%; background: var(--c-brand); box-shadow: 0 0 0 2px var(--c-bg), 0 0 0 3.5px #C8A27A; flex: none; display: grid; place-items: center; color: #fff; font: 700 10px var(--display); }
+.ig-head b { display: block; font-size: 10px; }
+.ig-head small { opacity: .65; font-size: 8px; }
+.ig-stats { margin-left: auto; display: flex; gap: 12px; text-align: center; font-size: 8px; opacity: .8; }
+.ig-stats strong { display: block; font-size: 10px; }
+.ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+.ig-grid span { aspect-ratio: 1; display: grid; place-items: center; text-align: center; padding: 4px; color: #fff; font: 600 8.5px/1.15 var(--display); }
+.ig-grid span:nth-child(1) { background: #6B4A32; } .ig-grid span:nth-child(2) { background: #C8A27A; } .ig-grid span:nth-child(3) { background: #7D8B5A; }
+.ig-grid span:nth-child(4) { background: #E9D8BF; color: #2B211B; } .ig-grid span:nth-child(5) { background: #2B211B; } .ig-grid span:nth-child(6) { background: #A0694A; }
+.case-meta { padding: 24px 26px 28px; display: grid; gap: 8px; align-content: start; }
+.case-meta .tag { font: 500 11px var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--a2); }
+.case-meta h3 { font-size: 21px; }
+.case-meta p { color: var(--muted); font-size: 15px; }
+.case.cafe { --c-bg: #FAF6F0; --c-soft: #EADFD0; --c-brand: #6B4A32; --c-ink: #2B211B; --c-bg2: #2E241D; }
+.case.pet { --c-bg: #FFFFFF; --c-soft: #F4F1EA; --c-brand: #1E3A2C; --c-ink: #1A1A18; --c-bg2: #22302A; }
+.case.dent { --c-bg: #FFFFFF; --c-soft: #F3F6F5; --c-brand: #123B3A; --c-ink: #10201F; --c-bg2: #173634; }
+.mx { padding: 10px 12px; display: grid; gap: 9px; font-size: 8.5px; line-height: 1.35; }
+.mx img { display: block; width: 100%; object-fit: cover; background: var(--c-soft); }
+.mx-nav { display: flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,.08); }
+.mx-nav b { font: 800 13px/1 var(--body); letter-spacing: -.04em; color: var(--c-brand); }
+.mx-nav b em { font-style: normal; color: #B4532A; }
+.mx-nav .serif, .mx .serif { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.01em; }
+.mx-search { flex: 1; border: 1px solid var(--c-ink); border-radius: 2px; padding: 3px 6px; opacity: .55; }
+.mx-links { display: flex; gap: 8px; margin-left: auto; }
+.mx-links i { width: 22px; height: 3px; border-radius: 2px; background: currentColor; opacity: .2; }
+.mx-cart { background: var(--c-brand); color: #fff; padding: 3px 8px; border-radius: 99px; font-size: 7.5px; white-space: nowrap; }
+.mx-banner { position: relative; border-radius: 4px; overflow: hidden; height: 92px; background: #2A2A26; }
+.mx-banner img { position: absolute; inset: 0; height: 100%; }
+.mx-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,20,16,.8), rgba(15,20,16,0) 75%); }
+.mx-banner div { position: relative; z-index: 1; color: #fff; padding: 12px; max-width: 60%; display: grid; gap: 4px; }
+.mx-banner small { font-size: 7px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.mx-banner strong { font: 700 13px/1.1 var(--body); letter-spacing: -.03em; }
+.mx-banner u, .mx-split u { text-decoration: none; justify-self: start; background: #fff; color: var(--c-ink); padding: 3px 8px; border-radius: 2px; font-size: 7.5px; font-weight: 600; }
+.mx-prods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+.mx-prods div { display: grid; gap: 2px; }
+.mx-prods img { aspect-ratio: 1; border-radius: 3px; margin-bottom: 3px; }
+.mx-prods b { font-size: 8.5px; }
+.mx-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 10px; align-items: center; }
+.mx-split > div { display: grid; gap: 5px; }
+.mx-split small { font-size: 7px; letter-spacing: .1em; text-transform: uppercase; color: #2F7D6D; font-weight: 600; }
+.mx-split strong { font-size: 15px; line-height: 1.08; }
+.mx-split u { background: var(--c-brand); color: #fff; border-radius: 99px; padding: 4px 9px; }
+.mx-split img { aspect-ratio: 5 / 4; border-radius: 6px; }
+.mx-proof { display: flex; gap: 10px; opacity: .7; font-size: 7.5px; margin-top: 2px; }
+.mx-rows { display: grid; border-top: 1px solid rgba(0,0,0,.08); }
+.mx-rows span { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,.08); font-family: Georgia, serif; font-size: 9.5px; }
+.mx-rows b { font: 500 8px var(--body); opacity: .7; }
+.work > .case.next { grid-column: 1 / -1; grid-template-columns: 1fr auto; align-items: end; }
+@media (max-width: 780px) { .work > .case.next { grid-template-columns: 1fr; } }
+.case { position: relative; }
+.case-link { justify-self: start; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; font-weight: 600; font-size: 15px; text-decoration: none; color: var(--fg); }
+.case-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.case-link .arr { transition: transform .25s var(--ease); }
+.case:hover .case-link .arr { transform: translate(3px, -3px); }
+.case:has(.case-link:focus-visible) { outline: 2px solid var(--a1); outline-offset: 3px; }
+.m-chat { display: grid; gap: 5px; align-content: center; }
+.m-chat span { max-width: 92%; padding: 4px 7px; border-radius: 8px; font-size: 8px; background: var(--c-soft); justify-self: start; }
+.m-chat span.me { background: var(--c-brand); color: #fff; justify-self: end; }
+.case.next { position: relative; isolation: isolate; grid-template-rows: 1fr; padding: clamp(30px, 4vw, 48px); align-content: space-between; gap: 32px; background: var(--card); }
+.case.next::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(60% 60% at 90% 10%, rgba(92, 120, 255, .45), transparent 70%), radial-gradient(60% 60% at 10% 100%, rgba(255, 150, 60, .35), transparent 70%); }
+.case.next::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--grain); opacity: .1; mix-blend-mode: overlay; }
+.case.next h3 { font-size: clamp(26px, 3.2vw, 38px); margin-top: 14px; }
+.case.next p { color: rgba(242, 243, 245, .8); margin-top: 14px; max-width: 34ch; }
+.case.next .btn { justify-self: start; }
+@media (max-width: 780px) { .work { grid-template-columns: 1fr; } .shot { padding: 20px 20px 0; } }
+
+/* Packages */
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+.plan { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 34px 30px; border-radius: 22px; border: 1px solid var(--line); background: var(--card); min-width: 0; transition: transform .4s var(--ease), border-color .3s ease; }
+.plan { isolation: isolate; transition: transform .6s var(--ease), border-color .35s ease, box-shadow .6s ease; }
+.plan::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .4s ease;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(92, 120, 255, .2), rgba(255, 181, 71, .07) 45%, transparent 72%); }
+.plan .tag { transition: letter-spacing .5s var(--ease), color .3s ease; }
+.plan h3 { transition: transform .5s var(--ease); }
+.plan li { transition: transform .45s var(--ease), color .3s ease; }
+.plan li::before { transition: transform .6s var(--ease); }
+.plan li:nth-child(2) { transition-delay: .04s; }
+.plan li:nth-child(3) { transition-delay: .08s; }
+.plan li:nth-child(4) { transition-delay: .12s; }
+.plan li:nth-child(5) { transition-delay: .16s; }
+@media (hover: hover) {
+  .plan:hover {
+    transform: perspective(1000px) translateY(-10px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform .2s ease-out, border-color .35s ease, box-shadow .6s ease;
+    border-color: rgba(92, 120, 255, .45);
+    box-shadow: 0 34px 70px -30px rgba(0, 0, 0, .9), 0 0 60px -18px rgba(92, 120, 255, .45);
+  }
+  .plan.featured:hover { box-shadow: 0 34px 70px -30px rgba(0, 0, 0, .9), 0 0 70px -16px rgba(255, 181, 71, .4); }
+  .plan:hover::after { opacity: 1; }
+  .plan:hover .tag { letter-spacing: .24em; color: var(--fg); }
+  .plan:hover h3 { transform: translateX(4px); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .plan:hover li { transform: translateX(6px); }
+  .plan:hover li::before { transform: scale(1.2) rotate(180deg); }
+  .plan:hover .btn-line { border-color: var(--muted); background: rgba(255, 255, 255, .06); }
+}
+.plan .tag { font: 500 11px var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.plan h3 { font-size: 24px; }
+.plan .desc { color: var(--muted); font-size: 15px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.plan ul { display: grid; gap: 12px; font-size: 15px; }
+.plan li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; }
+.plan li::before { content: ""; width: 14px; height: 14px; margin-top: 5px; border-radius: 50%; background: var(--grad); -webkit-mask: radial-gradient(circle, transparent 3px, #000 3.5px); mask: radial-gradient(circle, transparent 3px, #000 3.5px); }
+.plan .btn { margin-top: auto; }
+.plan.featured { background: linear-gradient(180deg, #1B1F2C, var(--card)); border-color: transparent; }
+.plan.featured .tag { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.plan.featured::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none;
+  background: conic-gradient(from var(--angle), var(--line) 0 45%, var(--a1) 62%, var(--a2) 75%, var(--line) 92%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: spin 5s linear infinite;
+}
+@keyframes spin { to { --angle: 360deg; } }
+.note { margin-top: 28px; text-align: center; font-size: 14px; color: var(--dim); }
+@media (max-width: 920px) { .plans { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; } }
+
+/* FAQ */
+.faq { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+.faq details { border: 1px solid var(--line); border-radius: 16px; background: var(--card); transition: border-color .3s ease, background .3s ease; }
+.faq details[open] { border-color: #343846; background: var(--card-2); }
+.faq summary { cursor: pointer; list-style: none; padding: 22px 64px 22px 26px; position: relative; font: 600 17px/1.35 var(--display); letter-spacing: -0.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 22px; top: 50%; width: 30px; height: 30px; margin-top: -15px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font: 400 18px/1 var(--body); color: var(--muted); transition: transform .3s var(--ease), background .3s ease, color .3s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.faq details p { padding: 0 26px 24px; color: var(--muted); max-width: 66ch; animation: open .35s var(--ease); }
+@keyframes open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* Contact */
+.contact-wrap { position: relative; isolation: isolate; overflow: hidden; border-radius: 28px; border: 1px solid var(--line); padding: clamp(28px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: start; background: var(--card); }
+.contact-wrap::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(50% 60% at 0% 0%, rgba(92, 120, 255, .4), transparent 70%), radial-gradient(50% 60% at 100% 100%, rgba(255, 150, 60, .3), transparent 70%); }
+.contact-wrap::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--grain); opacity: .1; mix-blend-mode: overlay; }
+.contact-info { display: grid; gap: 22px; min-width: 0; }
+.contact-info h2 { font-size: clamp(30px, 4.4vw, 52px); }
+.contact-info p { color: rgba(242, 243, 245, .8); font-size: 17px; max-width: 40ch; }
+.channels { display: grid; gap: 10px; margin-top: 8px; }
+.channel { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--line); background: rgba(11, 12, 16, .45); text-decoration: none; transition: border-color .3s ease, transform .3s var(--ease); }
+a.channel:hover { border-color: var(--muted); transform: translateX(4px); }
+.channel .ci { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(255, 255, 255, .06); color: var(--fg); flex: none; }
+.channel .ci svg { width: 18px; height: 18px; }
+.channel small { display: block; font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.channel b { font-weight: 600; }
+form.card { display: grid; gap: 16px; min-width: 0; padding: clamp(22px, 3vw, 32px); border-radius: 20px; background: rgba(11, 12, 16, .7); border: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: grid; gap: 7px; min-width: 0; align-content: start; }
+.field label { font-size: 14px; font-weight: 600; }
+.field label small { font-weight: 400; color: var(--dim); }
+.field input, .field select, .field textarea {
+  font: 400 16px/1.4 var(--body); color: var(--fg); background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 13px 15px; width: 100%; transition: border-color .2s ease, background .2s ease;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--dim); }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: #343846; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--a1); background: var(--card-2); box-shadow: 0 0 0 4px rgba(92, 120, 255, .18); }
+.field textarea { min-height: 120px; resize: vertical; }
+.field [aria-invalid="true"] { border-color: #FF6B6B; }
+.field .err { font-size: 13px; color: #FF8A8A; }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.form-foot small { color: var(--dim); font-size: 13px; }
+.status { border-radius: 14px; padding: 16px; display: grid; gap: 10px; font-size: 15px; background: rgba(92, 120, 255, .12); border: 1px solid rgba(92, 120, 255, .3); animation: open .35s var(--ease); }
+.status pre { margin: 0; font: 13px/1.5 var(--mono); white-space: pre-wrap; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px; max-height: 180px; overflow: auto; }
+.status .btn { justify-self: start; padding: 10px 18px; font-size: 14px; }
+@media (max-width: 960px) { .contact-wrap { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .row { grid-template-columns: 1fr; } .form-foot .btn { width: 100%; } .hero .ctas .btn { flex: 1 1 auto; } }
+
+/* Footer */
+footer { border-top: 1px solid var(--line); padding-block: 64px 32px; }
+.foot { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; font-size: 14px; color: var(--muted); }
+.foot .about-f { display: grid; gap: 16px; align-content: start; max-width: 34ch; }
+.foot h4 { font: 500 11px var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--fg); margin-bottom: 16px; }
+.foot ul { display: grid; gap: 10px; }
+.foot a { text-decoration: none; transition: color .2s ease; }
+.foot a:hover { color: var(--fg); }
+.bigmark { display: block; width: 100%; max-width: 100%; height: auto; margin-top: 56px; overflow: visible; user-select: none; pointer-events: none; }
+.bottom { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: var(--dim); }
+@media (max-width: 820px) { .foot { grid-template-columns: 1fr 1fr; } .foot .about-f { grid-column: 1 / -1; } }
+
+/* Back to top */
+.to-top {
+  position: fixed; z-index: 45; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  width: 50px; height: 50px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer;
+  background: var(--fg); color: var(--bg); box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .7);
+  opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none; transition: opacity .3s ease, transform .3s var(--ease);
+  text-decoration: none;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top svg { width: 18px; height: 18px; }
+.to-top::before { content: ""; position: absolute; inset: -4px; border-radius: 50%; background: conic-gradient(var(--a1) calc(var(--progress, 0) * 360deg), transparent 0); -webkit-mask: radial-gradient(circle, transparent 26px, #000 26.5px); mask: radial-gradient(circle, transparent 26px, #000 26.5px); }
+
+/* Motion */
+@keyframes rise { from { opacity: 0; transform: translateY(24px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+.hero-inner > * { animation: rise 1s var(--ease) both; }
+.hero-inner > :nth-child(2) { animation-delay: .1s; }
+.hero-inner > :nth-child(3) { animation-delay: .25s; }
+.hero-inner > :nth-child(4) { animation-delay: .4s; }
+/* Scroll reveal: text and cards animate in once, then stay put */
+.rv-wait { opacity: 0; }
+.rv-in { animation: rvText 1.2s cubic-bezier(.16, 1, .3, 1) both; animation-delay: var(--d, 0ms); }
+.rv-card.rv-in { animation-name: rvCard; animation-duration: 1.4s; }
+.rv-fade.rv-in { animation-name: rvFade; animation-duration: 1.2s; }
+@keyframes rvText { from { opacity: 0; transform: translateY(20px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes rvCard { from { opacity: 0; transform: translateY(48px) scale(.97); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+/* Each section slides up over the previous one as a card, then settles flat so there is no visible seam */
+main { --overlap: clamp(56px, 8vw, 110px); --soft: cubic-bezier(.16, 1, .3, 1); }
+main > .section { margin-top: calc(var(--overlap) * -1); }
+/* Tops fade in from transparent, so whatever is underneath the overlap blends in without an edge */
+main > .section:not(.alt) { background: linear-gradient(180deg, transparent, var(--bg) var(--overlap)); }
+main > .section.alt { background: linear-gradient(180deg, transparent, var(--bg-2) 260px, var(--bg-2) calc(100% - 200px), var(--bg)); }
+/* Decorative glows may spill past the edges; clip them so phones and tablets never scroll sideways */
+main > .hero, main > .section { overflow-x: clip; }
+.channel > span:last-child { min-width: 0; }
+.d-screen { grid-template-columns: minmax(0, 1fr); }
+.d-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.channel b { overflow-wrap: anywhere; }
+main > .ticker { border-block: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  mask-composite: intersect; }
+footer { border-top: 0; }
+main > .ticker + .section { margin-top: 0; }
+main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
+.sec-card.rv-wait { opacity: 0; transform: translateY(120px) scale(.94); }
+.sec-card.rv-in { animation: secCard 1.6s var(--soft) both; animation-delay: var(--d, 0ms); will-change: transform, opacity; }
+@keyframes secCard {
+  0% { opacity: 0; transform: translateY(120px) scale(.94); border-radius: 56px; background-color: var(--card);
+    box-shadow: 0 -40px 90px -30px rgba(0, 0, 0, .9), inset 0 1px 0 var(--line); }
+  25% { opacity: 1; }
+  65% { border-radius: 36px; box-shadow: 0 -30px 70px -30px rgba(0, 0, 0, .7), inset 0 1px 0 var(--line); }
+  100% { opacity: 1; transform: none; border-radius: 0; box-shadow: 0 0 0 0 transparent, inset 0 0 0 0 transparent; }
+}
+@keyframes rvFade { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: none; } }
+.split .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 .06em .14em; margin: 0 -.06em -.14em; }
+.split .w > span { display: inline-block; }
+.split.rv-wait, .split.rv-in { opacity: 1; animation: none; }
+.split.rv-wait .w > span { opacity: 0; transform: translateY(115%) rotate(6deg); }
+.split.rv-in .w > span { animation: rvWord 1.2s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--d, 0ms) + var(--i, 0) * 60ms); }
+@keyframes rvWord { from { opacity: 0; transform: translateY(115%) rotate(6deg); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rv-wait, .split.rv-wait .w > span, .sec-card.rv-wait { opacity: 1; transform: none; }
+  .device { transform: none; }
+}
+</style>
+
+<a class="skip" href="#top">Preskoči na sadržaj</a>
+<header class="site" id="header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Vyntro – početna">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="2,5 9.5,5 17.5,27 10,27" fill="#F2F3F5"/><polygon points="22.5,5 30,5 22,27 14.5,27" fill="#5C78FF"/></svg>
+      <span>VYNTRO</span>
+    </a>
+    <nav class="links" id="nav" aria-label="Glavna navigacija">
+      <a href="#o-nama">O nama</a>
+      <a href="#usluge">Usluge</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#proces">Proces</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="head-right">
+      <div class="socials"><a href="https://www.instagram.com/vyntro" target="_blank" rel="noopener" aria-label="Instagram">IG</a><span>|</span><a href="https://www.facebook.com/vyntro" target="_blank" rel="noopener" aria-label="Facebook">FB</a><span>|</span><a href="https://www.linkedin.com/company/vyntro" target="_blank" rel="noopener" aria-label="LinkedIn">LN</a></div>
+      <a class="btn btn-white" href="#kontakt">Zakažite razgovor</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Otvori meni" aria-expanded="false" aria-controls="nav">
+        <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+        <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Digitalni studio · Novi Sad</span>
+      <h1 aria-label="Pravimo sajtove, web shopove, dizajn i sadržaj.">Pravimo<br><span aria-hidden="true"><span class="typed" id="typed">sajtove.</span><span class="caret"></span></span></h1>
+      <p class="lead">Kreiramo sajtove, web shopove i sadržaj za društvene mreže – od ideje do kupca.</p>
+      <div class="ctas">
+        <a class="btn btn-white" href="#kontakt">Hajde da pričamo <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-line" href="#portfolio">Pogledajte radove</a>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#o-nama" aria-label="Skrolujte na sledeći deo"><span>SKROLUJ</span><i></i></a>
+  </section>
+
+  <section class="section" id="o-nama">
+    <div class="wrap about">
+      <div>
+        <span class="eyebrow">O nama</span>
+        <h2 style="margin-top:18px">Mladi studio sa ozbiljnim pristupom</h2>
+        <div class="rule"></div>
+        <p>Vyntro je digitalni studio iz Novog Sada. Dizajniramo i kreiramo sajtove i web shopove po meri. Vodimo društvene mreže za firme koje žele da ih kupci lakše pronađu. Spajamo moderan dizajn sa jednostavnim korišćenjem.</p>
+        <div class="pillars">
+          <div><b>Direktna komunikacija</b><span>Razgovarate sa ljudima koji rade vaš projekat.</span></div>
+          <div><b>Jasan dogovor</b><span>Cena, rok i obim posla unapred utvrđeni.</span></div>
+          <div><b>Vaše vlasništvo</b><span>Personalizovani domen i nalozi.</span></div>
+          <div><b>Lokalna prodaja</b><span>Omogućavamo sve oblike vođenja shopova.</span></div>
+        </div>
+      </div>
+      <div class="device" aria-hidden="true">
+        <div class="d-bar"><i></i><i></i><i></i><span>vyntro.rs</span></div>
+        <div class="d-screen">
+          <div class="d-nav"><b></b><span><i></i><i></i><i></i></span></div>
+          <div class="d-hero"><i></i><i></i><u></u></div>
+          <div class="d-cards"><div></div><div></div><div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="proces">
+    <div class="wrap flow-wrap">
+      <div class="flow-intro">
+        <span class="eyebrow">Saradnja korak po korak</span>
+        <h2>Od prvog poziva do prvog kupca</h2>
+        <p>Pet koraka bez iznenađenja. Posle svakog tačno znate šta je urađeno i šta sledi, a ništa ne ide dalje bez vašeg odobrenja.</p>
+        <a class="btn btn-line" href="#kontakt">Krenimo od prvog koraka <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <ol class="flow" id="flow">
+        <li>
+          <span class="when">Prvi dan</span>
+          <h3>Kafa i razgovor</h3>
+          <p>Uživo u Novom Sadu ili onlajn. Pričamo o vašem poslu, kupcima i tome šta sajt ili mreže treba da vam donesu.</p>
+          <span class="out">Jasna slika šta vam treba</span>
+        </li>
+        <li>
+          <span class="when">Za par dana</span>
+          <h3>Predlog i ponuda</h3>
+          <p>Šaljemo strukturu sajta, spisak stranica ili proizvoda, rok i cenu. Sve je napisano, bez sitnih slova.</p>
+          <span class="out">Pisana ponuda</span>
+        </li>
+        <li>
+          <span class="when">Pre izrade</span>
+          <h3>Dizajn na odobrenje</h3>
+          <p>Vidite kako će sajt izgledati na računaru i telefonu. Menjamo dok ne budete zadovoljni.</p>
+          <span class="out">Odobren dizajn</span>
+        </li>
+        <li>
+          <span class="when">Izrada</span>
+          <h3>Gradimo i punimo sadržajem</h3>
+          <p>Pravimo sajt, unosimo tekstove, slike i proizvode, podešavamo plaćanje, dostavu i Google profil.</p>
+          <span class="out">Sajt spreman za proveru</span>
+        </li>
+        <li>
+          <span class="when">Dan D</span>
+          <h3>Puštanje uživo i obuka</h3>
+          <p>Sajt ide na vaš domen, a vama pokazujemo kako da menjate sadržaj i pratite upite i porudžbine.</p>
+          <span class="out">Sajt uživo, a vi znate da ga vodite</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="usluge">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Šta radimo</span>
+        <h2>Naše usluge</h2>
+        <p>Sve što vam treba za ozbiljno prisustvo na internetu, na jednom mestu.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+          <h3>Izrada web sajtova</h3>
+          <p>Prezentacioni sajtovi za firme, ordinacije, salone i servise. Brzi, pregledni i napravljeni da posetilac pozove ili pošalje upit.</p>
+          <ul><li>Po meri</li><li>Mobilno</li><li>SEO osnova</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.5l2.2 11h10.6L20.5 8H6.6"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg></span>
+          <h3>Web shopovi</h3>
+          <p>Online prodavnice prilagođene kupovini u Srbiji, te uslužno vođenje u saradnji sa vama.</p>
+          <ul><li>Vođenje</li><li>Plaćanje</li><li>Logistika</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="13.5" r="2.5"/><circle cx="7" cy="9" r="2.5"/><path d="M12 22a10 10 0 1 1 10-10c0 2.5-2 3-3.5 3H16a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22z"/></svg></span>
+          <h3>Web dizajn</h3>
+          <p>Dizajn novih sajtova i redizajn postojećih, uz logo, boje i tipografiju kada brend tek nastaje.</p>
+          <ul><li>UI/UX</li><li>Redizajn</li><li>Vizuelni identitet</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span>
+          <h3>Društvene mreže</h3>
+          <p>Vođenje Instagram, Facebook i TikTok profila: plan sadržaja, dizajn objava, kampanje i mesečni izveštaj.</p>
+          <ul><li>Sadržaj</li><li>Kampanje</li><li>Izveštaji</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span>
+          <h3>Online marketing</h3>
+          <p>Vođenje plaćenih promocija na društvenim mrežama i platformama za Google/Meta promocije</p>
+          <ul><li>Publika</li><li>Kampanje</li><li>Rast</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span>
+          <h3>Kreiranje sadržaja</h3>
+          <p>Kreiranje sadržaja prilagođenog vašoj branši ali isto tako usmerenog što bržem rastu vašeg brenda.</p>
+          <ul><li>Sadržaj</li><li>Kreativnost</li><li>Produkcija</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Izrada sajtova</span><i></i><span>Web shopovi</span><i></i><span>Web dizajn</span><i></i><span>Društvene mreže</span><i></i><span>Online Marketing</span><i></i><span>Kreiranje Sadržaja</span><i></i><span>Vizuelni identitet</span><i></i><span>Održavanje</span><i></i>
+      <span>Izrada sajtova</span><i></i><span>Web shopovi</span><i></i><span>Web dizajn</span><i></i><span>Društvene mreže</span><i></i><span>Online Marketing</span><i></i><span>Kreiranje Sadržaja</span><i></i><span>Vizuelni identitet</span><i></i><span>Održavanje</span><i></i>
+    </div>
+  </div>
+
+  <section class="section" id="portfolio">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Portfolio</span>
+        <h2>Izdvojeni radovi</h2>
+        <p>Dva pokazna projekta: web shop i sajt za firmu. Otvorite ih i isprobajte kao pravi sajt.</p>
+      </div>
+      <div class="work">
+        <article class="case pet">
+          <div class="shot" aria-hidden="true">
+            <div class="mock">
+              <div class="m-bar"><i></i><i></i><i></i><span>repic.rs</span></div>
+              <div class="mx">
+                <div class="mx-nav"><b>repić<em>.</em></b><span class="mx-search">Pretražite hranu, opremu…</span><span class="mx-cart">Korpa · 2</span></div>
+                <div class="mx-banner"><img src="https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&w=700&q=70" alt="" loading="lazy" onerror="this.style.opacity=0"><div><small>Nova kolekcija</small><strong>Topla mesta za duge zimske dremke</strong><u>Pogledajte ležaljke</u></div></div>
+                <div class="mx-prods">
+                  <div><img src="https://images.unsplash.com/photo-1676193866128-03a926df76ef?auto=format&fit=crop&w=200&q=70" alt="" loading="lazy" onerror="this.style.opacity=0"><span>Brit Care 3 kg</span><b>2.490 din</b></div>
+                  <div><img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=200&q=70" alt="" loading="lazy" onerror="this.style.opacity=0"><span>Kong igračka</span><b>1.290 din</b></div>
+                  <div><img src="https://images.unsplash.com/photo-1787561375245-efc541f1ee87?auto=format&fit=crop&w=200&q=70" alt="" loading="lazy" onerror="this.style.opacity=0"><span>Am za pse M</span><b>4.290 din</b></div>
+                  <div><img src="https://images.unsplash.com/photo-1596854331442-3cf47265cefb?auto=format&fit=crop&w=200&q=70" alt="" loading="lazy" onerror="this.style.opacity=0"><span>Hrana za mačke</span><b>1.990 din</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-meta">
+            <span class="tag">Web shop · Pet shop</span>
+            <h3>Repić, online pet shop</h3>
+            <p>Kompletan web shop: kategorije, pretraga, akcije, lista želja i korpa sa obračunom dostave. Dostava isti dan po Novom Sadu.</p>
+            <a class="case-link" href="portfolio/repic/index.html" target="_blank" rel="noopener">Otvorite shop <span class="arr" aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="case dent">
+          <div class="shot" aria-hidden="true">
+            <div class="mock">
+              <div class="m-bar"><i></i><i></i><i></i><span>dentalosmeh.rs</span></div>
+              <div class="mx">
+                <div class="mx-nav"><b class="serif">Osmeh</b><span class="mx-links"><i></i><i></i><i></i><i></i></span><span class="mx-cart">Zakažite pregled</span></div>
+                <div class="mx-split">
+                  <div><small>Stomatolog · Novi Sad</small><strong class="serif">Stomatologija bez žurbe i bez iznenađenja</strong><u>Zakažite pregled online</u><div class="mx-proof"><span><b>4,9</b> Google</span><span><b>12.000+</b> pacijenata</span></div></div>
+                  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=70" alt="" loading="lazy" onerror="this.style.opacity=0">
+                </div>
+                <div class="mx-rows"><span>01 · Pregled i plan terapije<b>2.000 din</b></span><span>02 · Popravke i lečenje<b>od 3.500 din</b></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="case-meta">
+            <span class="tag">Sajt za firmu · Stomatologija</span>
+            <h3>Dental studio Osmeh</h3>
+            <p>Sajt ordinacije sa cenovnikom, predstavljanjem tima, recenzijama i online zahtevom za termin sa izborom slobodnog vremena.</p>
+            <a class="case-link" href="portfolio/osmeh/index.html" target="_blank" rel="noopener">Pogledajte sajt <span class="arr" aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="case next">
+          <div>
+            <span class="eyebrow">Sledeći projekat</span>
+            <h3>Vaš projekat može biti sledeći.</h3>
+            <p>Ispričajte nam čime se bavite, a mi ćemo predložiti kako da vas kupci lakše pronađu.</p>
+          </div>
+          <a class="btn btn-white" href="#kontakt">Zatražite ponudu <span class="arr" aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="paketi">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Saradnja</span>
+        <h2>Paketi po meri</h2>
+        <p>Posle uvodnog razgovora dobijate ponudu prilagođenu obimu posla, rokovima i budžetu.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <span class="tag">Za firme</span>
+          <h3>Sajt za firmu</h3>
+          <p class="desc">Profesionalno predstavljanje i više upita od novih kupaca.</p>
+          <ul><li>Broj stranica prema potrebi</li><li>Prilagođeno telefonima</li><li>Kontakt forma i mapa</li><li>Google Business profil</li><li>Promocija sajta</li></ul>
+          <a class="btn btn-line" href="#kontakt" data-plan="Sajt za firmu">Zatražite ponudu</a>
+        </article>
+        <article class="plan featured">
+          <span class="tag">Najčešći izbor</span>
+          <h3>Web shop</h3>
+          <p class="desc">Online prodaja širom Srbije, spremna od prvog dana.</p>
+          <ul><li>Dizajn prodavnice po meri</li><li>Unos proizvoda i kategorija</li><li>Opcije za naplatu</li><li>Podešena dostava</li><li>Uslužno vođenje</li></ul>
+          <a class="btn btn-grad" href="#kontakt" data-plan="Web shop">Zatražite ponudu <span class="arr" aria-hidden="true">→</span></a>
+        </article>
+        <article class="plan">
+          <span class="tag">Mesečno</span>
+          <h3>Društvene mreže</h3>
+          <p class="desc">Redovan i dosledan sadržaj, iz meseca u mesec.</p>
+          <ul><li>Broj objava prema dogovoru</li><li>Dizajn i tekstovi</li><li>Plan sadržaja unapred</li><li>Vođenje kampanja</li><li>Mesečni izveštaj</li></ul>
+          <a class="btn btn-line" href="#kontakt" data-plan="Društvene mreže">Zatražite ponudu</a>
+        </article>
+      </div>
+      <p class="note">Cenu, rok i obim posla dogovaramo posle uvodnog razgovora, bez obaveze.</p>
+    </div>
+  </section>
+
+  <section class="section" id="pitanja">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Pitanja</span>
+        <h2>Česta pitanja</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Koliko traje izrada?</summary>
+          <p>Rok dogovaramo za svaki projekat. Najviše zavisi od obima posla i od toga kada dobijemo tekstove, fotografije i podatke o proizvodima. Okvirni rok znate već u ponudi.</p>
+        </details>
+        <details>
+          <summary>Koliko košta izrada?</summary>
+          <p>Cena zavisi od obima posla, broja stranica ili proizvoda i rokova, pa je određujemo za svaki projekat posebno. Posle besplatnog uvodnog razgovora šaljemo ponudu, bez obaveze.</p>
+        </details>
+        <details>
+          <summary>Da li ćemo moći sami da menjamo sadržaj?</summary>
+          <p>Da. Posle pokretanja vaš tim obučavamo da menja tekstove, slike, cene i proizvode. Izmene možemo preuzeti i mi kroz mesečno održavanje.</p>
+        </details>
+        <details>
+          <summary>Možete li da unapredite postojeći sajt?</summary>
+          <p>Možemo. Najpre analiziramo postojeći sajt, zatim predlažemo redizajn ili izradu novog, u zavisnosti od toga šta je isplativije.</p>
+        </details>
+        <details>
+          <summary>Kako se vrši plaćanje?</summary>
+          <p>Način i dinamiku plaćanja dogovaramo za svaki projekat. Najčešće je to deo pre početka rada i ostatak po završetku, a vođenje mreža plaća se mesečno.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <span class="eyebrow">Kontakt</span>
+          <h2>Hajde da napravimo nešto dobro.</h2>
+          <p>Opišite ukratko šta vam je potrebno. Odgovaramo u roku od jednog radnog dana i predlažemo termin za uvodni razgovor.</p>
+          <div class="channels">
+            <a class="channel" href="mailto:kontakt@vyntro.rs"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small><b>vyntrocontact@gmail.com</b></span></a>
+            <a class="channel" href="https://www.instagram.com/vyntro" target="_blank" rel="noopener"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span><span><small>Instagram</small><b>@vyntro</b></span></a>
+            <div class="channel"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Lokacija</small><b>Novi Sad, Srbija</b></span></div>
+          </div>
+        </div>
+
+        <form class="card" id="forma" novalidate>
+          <div class="row">
+            <div class="field"><label for="ime">Ime i prezime</label><input id="ime" name="ime" autocomplete="name" required aria-describedby="ime-err"><span class="err" id="ime-err" hidden>Upišite ime i prezime.</span></div>
+            <div class="field"><label for="firma">Firma <small>(opciono)</small></label><input id="firma" name="firma" autocomplete="organization"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="email">Email ili telefon</label><input id="email" name="email" required aria-describedby="email-err"><span class="err" id="email-err" hidden>Upišite email ili broj telefona.</span></div>
+            <div class="field">
+              <label for="usluga">Usluga</label>
+              <select id="usluga" name="usluga">
+                <option>Sajt za firmu</option>
+                <option>Web shop</option>
+                <option>Web dizajn / redizajn</option>
+                <option>Društvene mreže</option>
+                <option>Više usluga</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="poruka">Opis projekta <small>(opciono)</small></label><textarea id="poruka" name="poruka" placeholder="Npr. imamo radnju u Novom Sadu i želimo web shop sa dostavom po Srbiji."></textarea></div>
+          <div class="form-foot">
+            <button class="btn btn-grad" type="submit">Pripremite upit <span class="arr" aria-hidden="true">→</span></button>
+            <small>Odgovor u roku od jednog radnog dana.</small>
+          </div>
+          <div class="status" id="status" role="status" hidden>
+            <span id="status-text"></span>
+            <pre id="status-msg"></pre>
+            <button class="btn btn-line" type="button" id="kopiraj">Kopirajte upit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="about-f">
+        <span class="logo">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="2,5 9.5,5 17.5,27 10,27" fill="#F2F3F5"/><polygon points="22.5,5 30,5 22,27 14.5,27" fill="#5C78FF"/></svg>
+          <span>VYNTRO</span>
+        </span>
+        <p>Digitalni studio iz Novog Sada. Sajtovi, web shopovi, dizajn i društvene mreže za firme u Srbiji.</p>
+      </div>
+      <div>
+        <h4>Usluge</h4>
+        <ul><li><a href="#usluge">Web sajtovi</a></li><li><a href="#usluge">Web shopovi</a></li><li><a href="#usluge">Web dizajn</a></li><li><a href="#usluge">Društvene mreže</a></li><li><a href="#usluge">Online marketing</a><li><a href="#usluge">Kreiranje sadržaja</a></ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul><li><a href="#o-nama">O nama</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#proces">Proces</a></li><li><a href="#pitanja">Pitanja</a></li></ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul><li><a href="mailto:kontakt@vyntro.rs">vyntrocontact@gmail.com</a></li><li><a href="https://www.instagram.com/vyntro" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/vyntro" target="_blank" rel="noopener">Facebook</a></li><li>Novi Sad, Srbija</li></ul>
+      </div>
+    </div>
+    <svg class="bigmark" viewBox="0 0 1000 184" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="bm-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F2F3F5" stop-opacity=".18"/>
+          <stop offset="1" stop-color="#F2F3F5" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <text x="500" y="168" text-anchor="middle" textLength="992" lengthAdjust="spacingAndGlyphs" font-family="Unbounded, 'Arial Black', sans-serif" font-weight="700" font-size="196" fill="url(#bm-fade)">VYNTRO</text>
+    </svg>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> Vyntro. Sva prava zadržana.</span>
+      <span>Napravljeno u Novom Sadu</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" id="to-top" href="#top" aria-label="Nazad na vrh">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</a>
+
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var header = $('#header'), menuBtn = $('#menu-btn'), toTop = $('#to-top');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  $('#year').textContent = new Date().getFullYear();
+
+  // Typed headline
+  var typed = $('#typed');
+  var words = ['sajtove.', 'web shopove.', 'dizajn.', 'brendove.', 'sadržaj.'];
+  if (!reduce) {
+    var wi = 0, ci = words[0].length, deleting = true;
+    var tick = function () {
+      var w = words[wi];
+      if (deleting) {
+        ci--;
+        typed.textContent = w.slice(0, ci);
+        if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+        setTimeout(tick, 45);
+      } else {
+        var next = words[wi];
+        ci++;
+        typed.textContent = next.slice(0, ci);
+        if (ci === next.length) { deleting = true; setTimeout(tick, 2200); }
+        else setTimeout(tick, 85);
+      }
+    };
+    setTimeout(tick, 2600);
+  }
+
+  // Mobile menu
+  var setMenu = function (open) {
+    header.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
+  };
+  menuBtn.addEventListener('click', function () { setMenu(!header.classList.contains('open')); });
+  document.querySelectorAll('#nav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', function (e) { if (!header.contains(e.target)) setMenu(false); });
+
+  // Header state, back-to-top, progress ring
+  var onScroll = function () {
+    var y = window.scrollY;
+    header.classList.toggle('scrolled', y > 20);
+    toTop.classList.toggle('show', y > window.innerHeight * 0.8);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    toTop.style.setProperty('--progress', max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
+    updateFlow();
+  };
+
+  // Process timeline: the line fills and steps light up as the reading point passes them
+  var flow = $('#flow'), flowSteps = flow.querySelectorAll('li');
+  function updateFlow() {
+    var r = flow.getBoundingClientRect();
+    var point = window.innerHeight * 0.6;
+    var fill = Math.max(0, Math.min(1, (point - r.top) / r.height));
+    flow.style.setProperty('--fill', fill.toFixed(4));
+    flowSteps.forEach(function (li) { li.classList.toggle('on', li.getBoundingClientRect().top + 20 < point); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Cursor glow on service cards
+  document.querySelectorAll('.svc').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--x', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--y', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    // Active nav link
+    var links = {};
+    document.querySelectorAll('#nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && links[en.target.id]) {
+          Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+          links[en.target.id].setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+
+    // Scroll reveal: below-the-fold text and cards animate in once when they enter the view, then stay in place
+    if (!reduce) {
+      var targets = [
+        ['main .section, body > .section', 'sec-card'],
+        ['h2', 'split'],
+        ['.eyebrow:not(.hero .eyebrow), .head p, .about .rule, .about p, .pillars > div, .flow-intro p, .flow-intro .btn, .note, .contact-info p, .channel', 'text'],
+        ['.flow li, .services .svc, .work .case, .plans .plan, .faq details, .contact-wrap form', 'rv-card'],
+        ['.about .device', 'rv-fade']
+      ];
+      var done = function (el) {
+        el.classList.remove('rv-in', 'rv-card', 'rv-fade', 'sec-card');
+        el.style.removeProperty('--d');
+      };
+      var io = new IntersectionObserver(function (entries) {
+        var shown = entries.filter(function (en) { return en.isIntersecting; }).map(function (en) { return en.target; });
+        shown.sort(function (x, y) { return x.compareDocumentPosition(y) & 4 ? -1 : 1; });
+        shown.forEach(function (el, k) {
+          io.unobserve(el);
+          el.style.setProperty('--d', (Math.min(k, 6) * 110) + 'ms');
+          el.classList.remove('rv-wait');
+          el.classList.add('rv-in');
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
+      // A section card that already peeks in on the first screen stays hidden until the visitor starts scrolling
+      var early = [];
+      targets.forEach(function (t) {
+        document.querySelectorAll(t[0]).forEach(function (el) {
+          var top = el.getBoundingClientRect().top;
+          var peek = t[1] === 'sec-card' && top > 0 && top < window.innerHeight;
+          if (top < window.innerHeight && !peek) return;
+          if (t[1] === 'split') {
+            var words = el.textContent.trim().split(/\s+/);
+            el.setAttribute('aria-label', words.join(' '));
+            el.innerHTML = words.map(function (w, i) {
+              return '<span class="w" aria-hidden="true"><span style="--i:' + i + '">' + w.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</span></span>';
+            }).join(' ');
+            el.classList.add('split');
+          } else {
+            if (t[1] !== 'text') el.classList.add(t[1]);
+            el.addEventListener('animationend', function end(ev) {
+              if (ev.target !== el) return;
+              done(el);
+              el.removeEventListener('animationend', end);
+            });
+          }
+          el.classList.add('rv-wait');
+          if (peek) early.push(el); else io.observe(el);
+        });
+      });
+      if (early.length) {
+        window.addEventListener('scroll', function first() {
+          if (window.scrollY < 8) return;
+          window.removeEventListener('scroll', first);
+          early.forEach(function (el) { el.classList.remove('rv-wait'); el.classList.add('rv-in'); });
+        }, { passive: true });
+      }
+      // Anything skipped by a jump (nav link, back-to-top) is shown right away, so nothing stays hidden above the view
+      var catchUp = function () {
+        document.querySelectorAll('.rv-wait').forEach(function (el) {
+          if (el.getBoundingClientRect().bottom < 0) { io.unobserve(el); el.classList.remove('rv-wait'); el.classList.add('rv-in'); }
+        });
+      };
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; catchUp(); }); }
+      }, { passive: true });
+    }
+  }
+
+  // Package cards: spotlight and gentle tilt that follow the cursor
+  if (!reduce) {
+    document.querySelectorAll('.plan').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        var r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--mx', (x * 100) + '%');
+        card.style.setProperty('--my', (y * 100) + '%');
+        card.style.setProperty('--rx', ((0.5 - y) * 8).toFixed(2) + 'deg');
+        card.style.setProperty('--ry', ((x - 0.5) * 8).toFixed(2) + 'deg');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
+  // Package buttons preselect the service
+  var select = $('#usluga');
+  document.querySelectorAll('[data-plan]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].text === a.getAttribute('data-plan')) select.selectedIndex = i;
+      }
+    });
+  });
+
+  // Form: builds the inquiry text for the visitor to send
+  var form = $('#forma'), status = $('#status'), statusText = $('#status-text'), statusMsg = $('#status-msg'), copyBtn = $('#kopiraj');
+  var mark = function (input, bad) {
+    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    document.getElementById(input.id + '-err').hidden = !bad;
+  };
+  ['ime', 'email'].forEach(function (id) {
+    form[id].addEventListener('input', function () { if (form[id].value.trim()) mark(form[id], false); });
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ime = form.ime.value.trim(), kontakt = form.email.value.trim();
+    mark(form.ime, !ime); mark(form.email, !kontakt);
+    if (!ime || !kontakt) { status.hidden = true; (ime ? form.email : form.ime).focus(); return; }
+    var firma = form.firma.value.trim(), poruka = form.poruka.value.trim();
+    statusMsg.textContent = 'Ime: ' + ime + (firma ? '\nFirma: ' + firma : '') + '\nKontakt: ' + kontakt + '\nUsluga: ' + select.value + (poruka ? '\n\n' + poruka : '');
+    statusText.textContent = 'Upit je spreman. Kopirajte ga i pošaljite na kontakt@vyntro.rs ili u poruci na Instagramu @vyntro.';
+    copyBtn.textContent = 'Kopirajte upit';
+    status.hidden = false;
+  });
+  copyBtn.addEventListener('click', function () {
+    var done = function () { copyBtn.textContent = 'Kopirano ✓'; setTimeout(function () { copyBtn.textContent = 'Kopirajte upit'; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(statusMsg);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = 'Označeno, pritisnite Ctrl+C';
+    };
+    try { navigator.clipboard.writeText(statusMsg.textContent).then(done, fallback); } catch (err) { fallback(); }
+  });
+})();
+</script>
+
+</body></html>
