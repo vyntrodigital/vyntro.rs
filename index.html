@@ -933,7 +933,7 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
   var typed = $('#typed');
   var words = ['sajtove.', 'web shopove.', 'dizajn.', 'brendove.', 'sadržaj.'];
   if (!reduce) {
-    var wi = 0, ci = words[0].length, deleting = true;
+    var wi = 0, ci = 0, deleting = false;
     var tick = function () {
       var w = words[wi];
       if (deleting) {
