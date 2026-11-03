@@ -1072,105 +1072,108 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
   }
 
   // Package buttons preselect the service
-  var select = $('#usluga');
-  document.querySelectorAll('[data-plan]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      for (var i = 0; i < select.options.length; i++) {
-        if (select.options[i].text === a.getAttribute('data-plan')) select.selectedIndex = i;
+
+  // Forma: slanje upita preko Web3Forms
+
+  var form = $('#forma'),
+      status = $('#status'),
+      statusText = $('#status-text'),
+      statusMsg = $('#status-msg'),
+      copyBtn = $('#kopiraj');
+
+  var mark = function (input, bad) {
+    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+
+    var error = document.getElementById(input.id + '-err');
+    if (error) error.hidden = !bad;
+  };
+
+  ['ime', 'email'].forEach(function (id) {
+    form[id].addEventListener('input', function () {
+      if (form[id].value.trim()) {
+        mark(form[id], false);
       }
     });
   });
 
-  // Form: builds the inquiry text for the visitor to send
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-var form = $('#forma'),
-    status = $('#status'),
-    statusText = $('#status-text'),
-    statusMsg = $('#status-msg'),
-    copyBtn = $('#kopiraj');
+    var ime = form.ime.value.trim();
+    var kontakt = form.email.value.trim();
 
-var mark = function (input, bad) {
-  input.setAttribute('aria-invalid', bad ? 'true' : 'false');
-  document.getElementById(input.id + '-err').hidden = !bad;
-};
+    mark(form.ime, !ime);
+    mark(form.email, !kontakt);
 
-['ime', 'email'].forEach(function (id) {
-  form[id].addEventListener('input', function () {
-    if (form[id].value.trim()) mark(form[id], false);
-  });
-});
+    if (!ime || !kontakt) {
+      status.hidden = true;
+      (ime ? form.email : form.ime).focus();
+      return;
+    }
 
-form.addEventListener('submit', async function (e) {
-  e.preventDefault();
+    var firma = form.firma.value.trim();
+    var poruka = form.poruka.value.trim();
+    var usluga = select.value;
 
-  var ime = form.ime.value.trim();
-  var kontakt = form.email.value.trim();
+    var data = new FormData();
 
-  mark(form.ime, !ime);
-  mark(form.email, !kontakt);
+    data.append('access_key', '51902535-defa-4597-9c13-89ec9e14d268');
+    data.append('name', ime);
 
-  if (!ime || !kontakt) {
-    status.hidden = true;
-    (ime ? form.email : form.ime).focus();
-    return;
-  }
+    // Polje prihvata email ili telefon, zato ga šaljemo kao kontakt.
+    data.append('Kontakt', kontakt);
 
-  var firma = form.firma.value.trim();
-  var poruka = form.poruka.value.trim();
-  var usluga = select.value;
-
-  var data = new FormData();
-  data.append('access_key', '51902535-defa-4597-9c13-89ec9e14d268');
-  data.append('name', ime);
-  data.append('email', kontakt);
-  data.append('subject', 'Novi upit sa sajta Vyntro');
-  data.append('Firma', firma || 'Nije navedena');
-  data.append('Usluga', usluga);
-  data.append('message', poruka || 'Korisnik nije uneo dodatnu poruku.');
-
-  status.hidden = false;
-  statusText.textContent = 'Šaljemo vaš upit...';
-  statusMsg.textContent = '';
-  copyBtn.hidden = true;
-
-  try {
-    var response = await fetch(
-      'https://api.web3forms.com/submit',
-      {
-        method: 'POST',
-        body: data
-      }
+    data.append('subject', 'Novi upit sa sajta Vyntro');
+    data.append('Firma', firma || 'Nije navedena');
+    data.append('Usluga', usluga);
+    data.append(
+      'message',
+      poruka || 'Korisnik nije uneo dodatnu poruku.'
     );
 
-    var result = await response.json();
-
-    if (response.ok && result.success) {
-      statusText.textContent =
-        'Vaš upit je uspešno poslat! Hvala na interesovanju. Javićemo vam se u najkraćem roku.';
-
-      statusMsg.textContent =
-        'Ime: ' + ime +
-        (firma ? '\nFirma: ' + firma : '') +
-        '\nKontakt: ' + kontakt +
-        '\nUsluga: ' + usluga +
-        (poruka ? '\n\n' + poruka : '');
-
-      copyBtn.hidden = true;
-      form.reset();
-
-      mark(form.ime, false);
-      mark(form.email, false);
-    } else {
-      statusText.textContent =
-        'Slanje nije uspelo. Pokušajte ponovo ili nam pišite na kontakt@vyntro.rs.';
-      copyBtn.hidden = true;
-    }
-  } catch (error) {
-    statusText.textContent =
-      'Došlo je do greške prilikom slanja. Proverite internet vezu ili nam pišite na kontakt@vyntro.rs.';
+    status.hidden = false;
+    statusText.textContent = 'Šaljemo vaš upit...';
+    statusMsg.textContent = '';
     copyBtn.hidden = true;
-  }
-});
+
+    try {
+      var response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
+          method: 'POST',
+          body: data
+        }
+      );
+
+      var result = await response.json();
+
+      if (response.ok && result.success) {
+        statusText.textContent =
+          'Vaš upit je uspešno poslat! Hvala na interesovanju. Javićemo vam se u najkraćem roku.';
+
+        statusMsg.textContent =
+          'Ime: ' + ime +
+          '\nKontakt: ' + kontakt +
+          (firma ? '\nFirma: ' + firma : '') +
+          '\nUsluga: ' + usluga +
+          (poruka ? '\n\n' + poruka : '');
+
+        form.reset();
+
+        mark(form.ime, false);
+        mark(form.email, false);
+      } else {
+        statusText.textContent =
+          'Slanje nije uspelo. Pokušajte ponovo ili nam pišite na kontakt@vyntro.rs.';
+      }
+    } catch (error) {
+      statusText.textContent =
+        'Došlo je do greške prilikom slanja. Proverite internet vezu ili nam pišite na kontakt@vyntro.rs.';
+    }
+  });
+
+})(); 
+
 
 </script>
 
