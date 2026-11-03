@@ -1071,7 +1071,16 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
     });
   }
 
-  // Package buttons preselect the service
+  var select = $('#usluga');
+  document.querySelectorAll('[data-plan]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].text === a.getAttribute('data-plan')) select.selectedIndex = i;
+      }
+    });
+  });
+
+  // Form: builds the inquiry text for the visitor to send
   var form = $('#forma'), status = $('#status'), statusText = $('#status-text'), statusMsg = $('#status-msg'), copyBtn = $('#kopiraj');
   var mark = function (input, bad) {
     input.setAttribute('aria-invalid', bad ? 'true' : 'false');
