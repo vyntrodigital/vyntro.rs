@@ -994,7 +994,7 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
     });
   });
 
-  if ('IntersectionObserver' in window) {
+if ('IntersectionObserver' in window) {
     // Active nav link
     var links = {};
     document.querySelectorAll('#nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
@@ -1031,7 +1031,7 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
           el.classList.add('rv-in');
         });
       }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
-      // A section card that already peeks in on the first screen stays hidden until the visitor starts scrolling
+      
       var early = [];
       targets.forEach(function (t) {
         document.querySelectorAll(t[0]).forEach(function (el) {
@@ -1064,7 +1064,6 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
           early.forEach(function (el) { el.classList.remove('rv-wait'); el.classList.add('rv-in'); });
         }, { passive: true });
       }
-      // Anything skipped by a jump (nav link, back-to-top) is shown right away, so nothing stays hidden above the view
       var catchUp = function () {
         document.querySelectorAll('.rv-wait').forEach(function (el) {
           if (el.getBoundingClientRect().bottom < 0) { io.unobserve(el); el.classList.remove('rv-wait'); el.classList.add('rv-in'); }
