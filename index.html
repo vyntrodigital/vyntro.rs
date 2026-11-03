@@ -811,53 +811,71 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
   </section>
 
   <section class="section" id="kontakt" style="padding-top:0">
-    <div class="wrap">
-      <div class="contact-wrap">
-        <div class="contact-info">
-          <span class="eyebrow">Kontakt</span>
-          <h2>Hajde da napravimo nešto dobro.</h2>
-          <p>Opišite ukratko šta vam je potrebno. Odgovaramo u roku od jednog radnog dana i predlažemo termin za uvodni razgovor.</p>
-          <div class="channels">
-            <a class="channel" href="mailto: vyntrocontact@gmail.com"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small><b>vyntrocontact@gmail.com</b></span></a>
-            <a class="channel" href="https://www.instagram.com/vyntro.rs" target="_blank" rel="noopener"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span><span><small>Instagram</small><b>@vyntro</b></span></a>
-            <div class="channel"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Lokacija</small><b>Novi Sad, Srbija</b></span></div>
+  <div class="wrap">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Hajde da napravimo nešto dobro.</h2>
+        <p>Opišite ukratko šta vam je potrebno. Odgovaramo u roku od jednog radnog dana i predlažemo termin za uvodni razgovor.</p>
+        <div class="channels">
+          <a class="channel" href="mailto:vyntrocontact@gmail.com"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small><b>vyntrocontact@gmail.com</b></span></a>
+          <a class="channel" href="https://www.instagram.com/vyntro.rs" target="_blank" rel="noopener"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span><span><small>Instagram</small><b>@vyntro</b></span></a>
+          <div class="channel"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Lokacija</small><b>Novi Sad, Srbija</b></span></div>
+        </div>
+      </div>
+
+      <form class="card" id="forma" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms konfiguracija -->
+        <input type="hidden" name="access_key" value="51902535-defa-4597-9c13-89ec9e14d268">
+        <input type="hidden" name="subject" value="Novi upit sa Vyntro sajta">
+
+        <div class="row">
+          <div class="field">
+            <label for="ime">Ime i prezime</label>
+            <input id="ime" name="name" autocomplete="name" required aria-describedby="ime-err">
+            <span class="err" id="ime-err" hidden>Upišite ime i prezime.</span>
+          </div>
+          <div class="field">
+            <label for="firma">Firma <small>(opciono)</small></label>
+            <input id="firma" name="firma" autocomplete="organization">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="field">
+            <label for="email">Email ili telefon</label>
+            <input id="email" name="email" required aria-describedby="email-err">
+            <span class="err" id="email-err" hidden>Upišite email ili broj telefona.</span>
+          </div>
+          <div class="field">
+            <label for="usluga">Usluga</label>
+            <select id="usluga" name="usluga">
+              <option>Sajt za firmu</option>
+              <option>Web shop</option>
+              <option>Web dizajn / redizajn</option>
+              <option>Društvene mreže</option>
+              <option>Više usluga</option>
+            </select>
           </div>
         </div>
 
-        <form class="card" id="forma" novalidate>
-          <div class="row">
-            <div class="field"><label for="ime">Ime i prezime</label><input id="ime" name="ime" autocomplete="name" required aria-describedby="ime-err"><span class="err" id="ime-err" hidden>Upišite ime i prezime.</span></div>
-            <div class="field"><label for="firma">Firma <small>(opciono)</small></label><input id="firma" name="firma" autocomplete="organization"></div>
-          </div>
-          <div class="row">
-            <div class="field"><label for="email">Email ili telefon</label><input id="email" name="email" required aria-describedby="email-err"><span class="err" id="email-err" hidden>Upišite email ili broj telefona.</span></div>
-            <div class="field">
-              <label for="usluga">Usluga</label>
-              <select id="usluga" name="usluga">
-                <option>Sajt za firmu</option>
-                <option>Web shop</option>
-                <option>Web dizajn / redizajn</option>
-                <option>Društvene mreže</option>
-                <option>Više usluga</option>
-              </select>
-            </div>
-          </div>
-          <div class="field"><label for="poruka">Opis projekta <small>(opciono)</small></label><textarea id="poruka" name="poruka" placeholder="Npr. imamo radnju u Novom Sadu i želimo web shop sa dostavom po Srbiji."></textarea></div>
-          <div class="form-foot">
-            <button class="btn btn-grad" type="submit">Pripremite upit <span class="arr" aria-hidden="true">→</span></button>
-            <small>Odgovor u roku od jednog radnog dana. <br> **Zaštita podataka:** Podaci koje unesete u ovu formu koristiće se isključivo u svrhu komunikacije i odgovora u vezi sa vašim upitom. 
-            Vaši podaci neće biti korišćeni u druge svrhe niti prosleđivani trećim licima bez vašeg pristanka. </br>
-            </small>
-          </div>
-          <div class="status" id="status" role="status" hidden>
-            <span id="status-text"></span>
-            <pre id="status-msg"></pre>
-            <button class="btn btn-line" type="button" id="kopiraj">Kopirajte upit</button>
-          </div>
-        </form>
-      </div>
+        <div class="field">
+          <label for="poruka">Opis projekta <small>(opciono)</small></label>
+          <textarea id="poruka" name="message" placeholder="Npr. imamo radnju u Novom Sadu i želimo web shop sa dostavom po Srbiji."></textarea>
+        </div>
+
+        <div class="form-foot">
+          <button class="btn btn-grad" type="submit" id="submit-btn">Pošaljite upit <span class="arr" aria-hidden="true">→</span></button>
+          <small>Odgovor u roku od jednog radnog dana. <br><strong>Zaštita podataka:</strong> Podaci koje unesete u ovu formu koristiće se isključivo u svrhu komunikacije i odgovora u vezi sa vašim upitom. Vaši podaci neće biti korišćeni u druge svrhe niti prosleđivani trećim licima bez vašeg pristanka.</small>
+        </div>
+
+        <div class="status" id="status" role="status" hidden>
+          <span id="status-text"></span>
+        </div>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -1087,33 +1105,76 @@ main > #kontakt { padding-top: clamp(64px, 8vw, 110px) !important; }
   });
 
   // Form: builds the inquiry text for the visitor to send
-  var form = $('#forma'), status = $('#status'), statusText = $('#status-text'), statusMsg = $('#status-msg'), copyBtn = $('#kopiraj');
-  var mark = function (input, bad) {
+(function () {
+  const form = document.getElementById('forma');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('status');
+  const statusText = document.getElementById('status-text');
+
+  // Funkcija za označavanje grešaka u validaciji
+  const mark = function (input, bad) {
     input.setAttribute('aria-invalid', bad ? 'true' : 'false');
-    document.getElementById(input.id + '-err').hidden = !bad;
+    const errEl = document.getElementById(input.id + '-err');
+    if (errEl) errEl.hidden = !bad;
   };
+
+  // Sklanjanje greške pri kucanju
   ['ime', 'email'].forEach(function (id) {
-    form[id].addEventListener('input', function () { if (form[id].value.trim()) mark(form[id], false); });
+    const el = form[id];
+    if (el) {
+      el.addEventListener('input', function () {
+        if (el.value.trim()) mark(el, false);
+      });
+    }
   });
-  form.addEventListener('submit', function (e) {
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    var ime = form.ime.value.trim(), kontakt = form.email.value.trim();
-    mark(form.ime, !ime); mark(form.email, !kontakt);
-    if (!ime || !kontakt) { status.hidden = true; (ime ? form.email : form.ime).focus(); return; }
-    var firma = form.firma.value.trim(), poruka = form.poruka.value.trim();
-    statusMsg.textContent = 'Ime: ' + ime + (firma ? '\nFirma: ' + firma : '') + '\nKontakt: ' + kontakt + '\nUsluga: ' + select.value + (poruka ? '\n\n' + poruka : '');
-    statusText.textContent = 'Upit je spreman. Kopirajte ga i pošaljite na kontakt@vyntro.rs ili u poruci na Instagramu @vyntro.';
-    copyBtn.textContent = 'Kopirajte upit';
-    status.hidden = false;
-  });
-  copyBtn.addEventListener('click', function () {
-    var done = function () { copyBtn.textContent = 'Kopirano ✓'; setTimeout(function () { copyBtn.textContent = 'Kopirajte upit'; }, 1800); };
-    var fallback = function () {
-      var r = document.createRange(); r.selectNodeContents(statusMsg);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      copyBtn.textContent = 'Označeno, pritisnite Ctrl+C';
-    };
-    try { navigator.clipboard.writeText(statusMsg.textContent).then(done, fallback); } catch (err) { fallback(); }
+
+    // Validacija obaveznih polja
+    const ime = form.ime.value.trim();
+    const kontakt = form.email.value.trim();
+    mark(form.ime, !ime);
+    mark(form.email, !kontakt);
+
+    if (!ime || !kontakt) {
+      status.hidden = true;
+      (ime ? form.email : form.ime).focus();
+      return;
+    }
+
+    const originalHTML = submitBtn.innerHTML;
+    submitBtn.textContent = "Slanje u toku...";
+    submitBtn.disabled = true;
+    status.hidden = true;
+
+    const formData = new FormData(form);
+    // Napomena: access_key je već u HTML-u kao hidden input, ali ga FormData automatski pokupi.
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        statusText.textContent = "Hvala! Vaš upit je uspešno poslat. Odgovorićemo vam u roku od jednog radnog dana.";
+        status.hidden = false;
+        form.reset();
+      } else {
+        statusText.textContent = "Greška: " + (data.message || "Došlo je do greške prilikom slanja.");
+        status.hidden = false;
+      }
+
+    } catch (error) {
+      statusText.textContent = "Došlo je do mrežne greške. Proverite konekciju i pokušajte ponovo.";
+      status.hidden = false;
+    } finally {
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.disabled = false;
+    }
   });
 })();
 
